@@ -1,0 +1,18 @@
+# Ruff configuration for HADES OS
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = [
+    "B008",  # Do not perform function call `Depends` in argument defaults
+    "B904",  # raise ... from e
+    "UP035", # typing.List/Dict deprecated
+    "E501",  # line length
+    "E712",  # comparison to True/False for SQLAlchemy
+    "E402",  # module level import not at top of file (needed for env vars before app import in tests)
+    "F841",  # unused variable
+]
+
+[lint.isort]
+known-first-party = ["backend"]
